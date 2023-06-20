@@ -5,12 +5,13 @@ import org.saga.orch.model.GeneralServiceCallBuilder;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ServiceCallHandler {
+public class DefaultServiceCallHandler extends GeneralServiceCallHandler{
 
-    private static final Logger LOGGER = Logger.getLogger(ServiceCallHandler.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(DefaultServiceCallHandler.class.getName());
     private final GeneralServiceCallBuilder generalServiceCallBuilder;
 
-    public ServiceCallHandler(GeneralServiceCallBuilder generalServiceCallBuilder) {
+    public DefaultServiceCallHandler(GeneralServiceCallBuilder generalServiceCallBuilder) {
+        super(generalServiceCallBuilder);
         this.generalServiceCallBuilder = generalServiceCallBuilder;
     }
 
@@ -30,7 +31,4 @@ public class ServiceCallHandler {
         return (T) generalServiceCallBuilder.getServiceCallBuilder().getCompensationCall().get();
     }
 
-    public GeneralServiceCallBuilder getGeneralServiceCallBuilder() {
-        return generalServiceCallBuilder;
-    }
 }

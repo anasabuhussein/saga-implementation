@@ -25,7 +25,7 @@ public class SagaServiceCall {
         nextServiceCall.forEach(serviceCall -> {
             try {
                 LOGGER.log(Level.INFO, "start to call services !");
-                ServiceCallHandler serviceCallHandler = new ServiceCallHandler(serviceCall);
+                GeneralServiceCallHandler serviceCallHandler = new DefaultServiceCallHandler(serviceCall);
                 ServiceCallResult<?, ?> serviceCallResult = new ServiceCallResult<>();
                 serviceCallResult.setServiceCallResult(serviceCallHandler.getServiceCallResult());
                 GeneralServiceCallResultBuilder resultBuilder = new DefaultServiceCallResultBuilder(serviceCallResult);
@@ -48,7 +48,7 @@ public class SagaServiceCall {
         finishedServiceCall.forEach(serviceCall -> {
             try {
                 String serviceName = serviceCall.getServiceCallBuilder().getServiceName();
-                ServiceCallHandler serviceCallHandler = new ServiceCallHandler(serviceCall);
+                GeneralServiceCallHandler serviceCallHandler = new DefaultServiceCallHandler(serviceCall);
                 GeneralServiceCallResultBuilder existGeneralServiceCall = results.get(serviceName);
 
                 LOGGER.log(Level.INFO, "get stored result from success service call for service {0}", serviceName);
@@ -85,13 +85,5 @@ public class SagaServiceCall {
         }
 
         return new DefaultServiceCallResultBuilder(new ServiceCallResult<>());
-    }
-
-    public Queue<GeneralServiceCallBuilder> getNextServiceCall() {
-        return nextServiceCall;
-    }
-
-    public Deque<GeneralServiceCallBuilder> getFinishedServiceCall() {
-        return finishedServiceCall;
     }
 }
