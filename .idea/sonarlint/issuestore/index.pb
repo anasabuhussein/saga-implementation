@@ -3,16 +3,6 @@ Z
 *src/test/java/org/saga/orch/AppV1Test.java,a/0/a002848f9ecc411f2c848e4c870b8db822f7a193
 e
 5src/main/java/org/saga/orch/model/CustomSupplier.java,0/1/01217355655e591717e25dca2e5c15141fcdca66
-v
-Fsrc/main/java/org/saga/orch/model/DefaultServiceCallResultBuilder.java,5/7/57ee7e7e7ea98e5fc1daa0ae0b18b902b653aa4b
-p
-@src/main/java/org/saga/orch/model/GeneralServiceCallBuilder.java,1/4/14ca03ca477f82547398112445bccaa3a62502df
-v
-Fsrc/main/java/org/saga/orch/model/GeneralServiceCallResultBuilder.java,1/8/18470cc1ba0b48e2bc303fcba0394589d780f3e3
-i
-9src/main/java/org/saga/orch/model/ServiceCallBuilder.java,c/1/c1fc983b653725e42e051108bfe3a09ef5f134a9
-h
-8src/main/java/org/saga/orch/model/ServiceCallResult.java,0/0/0045c24bf323fae14837afe4632915b94c6c4fb1
 f
 6src/main/java/org/saga/orch/model/ServiceCallType.java,a/6/a66b3465e8c8248399b2c42498b3335916eb963e
 d

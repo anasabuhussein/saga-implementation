@@ -34,7 +34,7 @@ public class SagaServiceCall {
                 results.put(serviceName, resultBuilder);
 
                 LOGGER.log(Level.INFO, "store success result of service {0} ", serviceName);
-                finishedServiceCall.addLast(serviceCall);
+                finishedServiceCall.addFirst(serviceCall);
             } catch (RuntimeException runtimeException) {
                 LOGGER.log(Level.WARNING, "something wrong! {0}", runtimeException.getMessage());
                 nextServiceCall.clear();
@@ -76,6 +76,15 @@ public class SagaServiceCall {
 
     public Map<String, GeneralServiceCallResultBuilder> getResults() {
         return results;
+    }
+
+    public GeneralServiceCallResultBuilder getResults(String serviceName) {
+        GeneralServiceCallResultBuilder serviceCallResult = results.get(serviceName);
+        if (serviceCallResult != null) {
+            return serviceCallResult;
+        }
+
+        return new DefaultServiceCallResultBuilder(new ServiceCallResult<>());
     }
 
     public Queue<GeneralServiceCallBuilder> getNextServiceCall() {
